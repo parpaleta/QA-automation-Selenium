@@ -1,4 +1,4 @@
-package com.selenium.course.tests.yahoo.finance.test01;
+package com.selenium.course.yahoo.finance.test01;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -29,7 +29,7 @@ public class YahooFinanceSignInTest {
 
     public void signUpForYahooFinance() {
         String[] inputDataArray = { "Chicho Mitko test  password +359 qaz June ff dd",
-                                    "Kaka Minka test  pass +359 poi February ee rr"
+                "Kaka Minka test  pass +359 poi February ee rr"
         };
 
         for (int i = 1; i <= inputDataArray.length; i++){
