@@ -77,7 +77,7 @@ public class YahooFinanceSignInTest {
 
     public void validateErrorMessages(){
         String actualRegErrorYid = driver.findElement(By.id("reg-error-yid")).getText();
-        String expectedRegErrorYid = "This email address is not available for sign up, try something else";
+        String expectedRegErrorYid = "This email address is not available for sign up, try something else1";
         Assert.assertEquals(actualRegErrorYid, expectedRegErrorYid);
 
         String actualRegErrorPasword = driver.findElement(By.id ("reg-error-password")).getText();
