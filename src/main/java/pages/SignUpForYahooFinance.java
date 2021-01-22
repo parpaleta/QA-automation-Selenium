@@ -15,16 +15,6 @@ public class SignUpForYahooFinance extends BasePage{
         super(driver);
     }
 
-    private static final String EXPECTED_EMAIL_ERROR =  "This email address is not available for sign up, try something else";
-    private static final String EXPECTED_PASSWORD_ERROR = "Your password isn’t strong enough, try making it longer.";
-    private static final String EXPECTED_PHONE_ERROR = "That doesn’t look right, please re-enter your phone number.";
-    private static final String EXPECTED_BIRTH_DATE_ERROR = "That doesn’t look right, please re-enter your birthday.";
-
-    private static final String EMAIL_ERROR_MESSAGE =  "Inconsistency in the email error message";
-    private static final String PASSWORD_ERROR_MESSAGE = "Inconsistency in the password error message";
-    private static final String PHONE_ERROR_MESSAGE = "Inconsistency in the phone error message";
-    private static final String BIRTH_DATE_ERROR_MESSAGE = "Inconsistency in the birth date error message";
-
     @FindBy(id="usernamereg-firstName")
     private WebElement firstName;
 
@@ -103,13 +93,13 @@ public class SignUpForYahooFinance extends BasePage{
         driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wait.until(ExpectedConditions.visibilityOf(actualEmailErrorYid));
 
-        softAssert.assertEquals(actualEmailErrorYid.getText(), EXPECTED_EMAIL_ERROR, EMAIL_ERROR_MESSAGE);
+        softAssert.assertEquals(actualEmailErrorYid.getText(), ErrorMessages.EXPECTED_EMAIL_ERROR.getErrMessage(), ErrorMessages.EMAIL_ERROR_MESSAGE.getErrMessage());
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        softAssert.assertEquals(actualPaswordError.getText(), EXPECTED_PASSWORD_ERROR, PASSWORD_ERROR_MESSAGE);
-        softAssert.assertEquals(actualPhoneError.getText(), EXPECTED_PHONE_ERROR, PHONE_ERROR_MESSAGE);
-        softAssert.assertEquals(actualBirthDateError.getText(), EXPECTED_BIRTH_DATE_ERROR, BIRTH_DATE_ERROR_MESSAGE);
+        softAssert.assertEquals(actualPaswordError.getText(), ErrorMessages.EXPECTED_PASSWORD_ERROR.getErrMessage(), ErrorMessages.PASSWORD_ERROR_MESSAGE.getErrMessage());
+        softAssert.assertEquals(actualPhoneError.getText(), ErrorMessages.EXPECTED_PHONE_ERROR.getErrMessage(), ErrorMessages.PHONE_ERROR_MESSAGE.getErrMessage());
+        softAssert.assertEquals(actualBirthDateError.getText(), ErrorMessages.EXPECTED_BIRTH_DATE_ERROR.getErrMessage(), ErrorMessages.BIRTH_DATE_ERROR_MESSAGE.getErrMessage());
 
         softAssert.assertAll();
     }

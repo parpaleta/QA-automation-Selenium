@@ -16,7 +16,8 @@ public class YahooFinanceHomePage extends BasePage{
     @FindBy(xpath = "//span[text()='Equity - NYQ']")
     private WebElement companyEuqityStockExchange;
 
-    @FindBy(xpath = "//ul[@class='modules_list__1zFHY']//li[@data-index='0' and @data-test='srch-sym']")
+//    @FindBy(xpath = "//ul[@class='modules_list__1zFHY']//li[@data-index='0' and @data-test='srch-sym']")
+    @FindBy(xpath = "//li[@data-index='0' and @data-test='srch-sym']")
     private WebElement searchedCompanyEquity;
 
     @FindBy(id = "header-signin-link")

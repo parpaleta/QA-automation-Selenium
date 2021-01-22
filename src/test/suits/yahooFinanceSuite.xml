@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Test Yahoo Finance" parallel="classes" thread-count="3">
+    <test name="Yahoo Finance Suite tests">
+        <packages>
+            <package name="com.selenium.course.yahoo.finance.*"/>
+        </packages>
+    </test>
+</suite>
