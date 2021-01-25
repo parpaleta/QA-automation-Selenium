@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 @Slf4j
 public class CompanyStatisticsPage extends BasePage{
@@ -19,11 +19,13 @@ public class CompanyStatisticsPage extends BasePage{
     //span[text()='Current']//ancestor::table[contains(@class,'BdEnd Bdc')]//tr[7]//td[2]
     //span[text()='Price/Book']//ancestor::tr/td[2]
 
-    @FindBy(xpath = "//span[text()='Current']//ancestor::table[contains(@class,'BdEnd Bdc')]//tr[7]//td[2]")
+    @FindBy(xpath = "//span[text()='Price/Book']//ancestor::tr/td[2]")
     private WebElement currentPriceBook;
 
     public void validateCurrentPriceBook(String currentPriceBookField){
         log.info("Current value for Price/Book (mrq): " + currentPriceBookField);
-        Assert.assertEquals(currentPriceBook.getText(), currentPriceBookField, CURRENT_PRICE_BOOK_ERROR_MESSAGE);
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(currentPriceBook.getText(), currentPriceBookField, CURRENT_PRICE_BOOK_ERROR_MESSAGE);
+        softAssert.assertAll();
     }
 }

@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 @Slf4j
 public class CompanyEqutyDetail extends BasePage{
@@ -22,7 +22,9 @@ public class CompanyEqutyDetail extends BasePage{
 
     public void getAndValidateCompanyDividend(String dividend){
         log.info("Company dividend: " + forwardDividendAndYield.getText());
-        Assert.assertEquals(forwardDividendAndYield.getText(), dividend, DIVIDEND_ERROR_MESSAGE);
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(forwardDividendAndYield.getText(), dividend, DIVIDEND_ERROR_MESSAGE);
+        softAssert.assertAll();
     }
 
     public CompanyStatisticsPage goToStatisticsTab(){
